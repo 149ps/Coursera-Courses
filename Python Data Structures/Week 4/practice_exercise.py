@@ -1,147 +1,55 @@
-lst1=['a','b','c']
-"""
-pop(gives the index if no index is given then deletes the last element)
-
-Syntex: lst1.pop(index)
-
-del (deletes the element of index specified)
-
-Syntex:
-del [list name(index name)]
-
-remove deletes the element specified by name.
-
-list.remove('element name') 
-
-
-
-total=0
-count=0
-while(True):
-    inp=input("Enter a number:")
-    if inp=='done':
-        break
-    value=float(inp)
-    total+=value
-    count+=1
-
-avg= total/count
-print("Average is:",avg)
-
-"""
-"""
-lst1=list()
-while(True):
-    inp=input('Enter a number:')
-    if inp=='done':
-        break
-    value=float(inp)
-    lst1.append(value)
-    
-avg=sum(lst1)/len(lst1)
-print('Average is:',avg)
 """
 
-'To convert a string into a list.'
-"""
-str1="Hello World, How are you"
-t=str1.split(',')
-print(t)
-"""
-"""
-lst1=['p','r','a','t']
-s=''
-i=s.join(lst1)
-print(i)
-"""
-"""
-def checkPalindrome(inputString):
-    lst1=list(inputString)
-    l=0
-    h=len(lst1)-1
-    print(lst1)
-    while(h>l):
-        if(lst1[l]!=lst1[h]):
-            print(lst1[l],lst1[h])
-            return False
+def max_difference(nums):
+    cur_max=0
+    for i in range(0,len(nums)-1):
+        for j in range(i+1,len(nums)):
+            if nums[i]<nums[j]:
+                if (nums[j]-nums[i])>cur_max:
+                    cur_max=nums[j]-nums[i]
+                    a=nums[i]
+                    b=nums[j]
+    return cur_max,a,b
+
+nums=[4,3,10,2,9,1,6]
+print(max_difference(nums))
+
+
+def periodicSequence(s0, a, b, m):
+    s=[]
+    s.append(s0)
+    print(s)
+    i=1
+    while True: 
+        val=(a*s[i-1] + b) % m
+        if val in s[1:]:
+            return val
         else:
-            l+=1
-            h-=1
-            print(lst1[l],lst1[h])
-            print(l,h)
-    return True
-
-str1='aaabaaaa'
-print(checkPalindrome(str1))
+            s.append(val)
+            i+=1
+s0=1
+a=2
+b=3
+m=5
+print(periodicSequence(1,2,3,5))
 """
 """
-str1='world '
-lst1=list(str1)
-print(str1)
-i=0
-j=4
-for char in lst1:
-    lst1[i]=lst1[j]
-    i+=1
-    j-=1
-    print(''.join(lst1))
-    
-    """
+import numpy as np
+a=np.array([10,2,31,4,15,6])
+x=a.argsort()
+y=np.array([])
 """
+list1=[1,2,3]
+dict1={}
+dict1[1]=list1
+print(dict1)
 
-def adjacentElementsProduct(inputArray):
-    start = inputArray[0]
-    product=start * inputArray[1]
-    for i,element in enumerate(inputArray[1:-1]):
-        start=element
-        print(element,i)
-        temp_product= element * inputArray[i+2]
-        print(temp_product)
-        if( temp_product > product):
-            product=temp_product
-    return product
+x=[[1,2],
+   [3,4]]]
 
-
-array=[3,6,-2,17,7,3]
-print(adjacentElementsProduct(array))
-
-"""
-"""
-
-def almostIncreasingSequence(sequence):
-    selist=list(sequence)
-    count=0
-    for i,element in enumerate(selist):
-        print(element,selist[i-1])
-        if (element<selist[i-1]):
-            count+=1
-            if(count>1):
-                return False
-        else:
-            return True
         
-a=[1,3,2,1]
-print(almostIncreasingSequence(a))
 
-"""
-
-def matrixElementsSum(matrix):
-    cost=0
-    for i,row in enumerate(matrix):
-        print(i,row)
-        for j,element in enumerate(row):
-            print(j,element)
-            if (element==0):
-                for z in range(len(matrix)):
-                    print(matrix[z][j])
-                    matrix[z][j]=0
-            elif(element!=0): 
-                cost+=element
-    return cost
-
-
-a=[[0, 1, 1, 2], 
-          [0, 5, 0, 0], 
-          [2, 0, 3, 3]]
-"""print(a[:len(a)][:])"""
-print(matrixElementsSum(a))
+            
+                
+                
+        
